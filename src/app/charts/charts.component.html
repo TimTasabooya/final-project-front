@@ -1,3 +1,13 @@
 <h2>charts works!</h2>
 
 <img src="view6190516_t800.jpg" alt="random-pic">
+
+<h1>Welcome to Stock API </h1>
+
+<button (click)="dataService.onClick()">CLICK FOR TIME SERIES</button>
+
+
+<div *ngFor=" let timeSeries of apiData">
+    <h2> {{ timeSeries.open }} </h2>
+
+</div>

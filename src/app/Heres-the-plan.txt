@@ -1,0 +1,12 @@
+LTKYF93B7YUK8CIK
+
+
+Saturday Oct 19th Goals
+
+1. Basic routing complete for charts, search, profile pagek -  COMPLETED
+2. Set up api service - COMPLETED V1
+3. Get some data to appear in the charts page (no actual chart.js yet) - BLOCKED by console ERROR TypeError: "_co.onClick is not a function"
+4. Mess around with Charts.js
+
+
+Example endpoint: https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=TSLA&interval=5min&apikey=LTKYF93B7YUK8CIK
