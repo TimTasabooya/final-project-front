@@ -4,9 +4,26 @@ LTKYF93B7YUK8CIK
 Saturday Oct 19th Goals
 
 1. Basic routing complete for charts, search, profile pagek -  COMPLETED
+
 2. Set up api service - COMPLETED V1
+
 3. Get some data to appear in the charts page (no actual chart.js yet) - BLOCKED by console ERROR TypeError: "_co.onClick is not a function"
+Number 3. fixed as of Monday Oct 21st after correctly importing api.service into the charts component
+
 4. Mess around with Charts.js
+Still trying to get the chart data into a workable format. Challenge is the keys of the time series is dynamic and changes
+with each request, each day. 
+*Note - the trading window is 09:35:00 to 16:00:00 week days only (i.e. 9:35am to 4pm)
+October 26th successfully have chart data saving to an array. Still need to figure out 
+how to import chart.js into my app and use it. The docs could use more diving into.
+Otherwise search for another charting library.
+ASK SEAN FOR HELP!
+
+5. Focus on Search api: Objective is to have the following reqs:
+    -Type a company name into an input, hit search
+    -List of stock symbols appear matching directly or closely to the company name entered
+    -Should have ability to add a stock to a favorites List
+    -later if I have time add the ability for krypto too
 
 
 Example endpoint: https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=TSLA&interval=5min&apikey=LTKYF93B7YUK8CIK
