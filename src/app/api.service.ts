@@ -11,11 +11,13 @@ export class ApiService {
 
   apiKey = "LTKYF93B7YUK8CIK";
   baseUrl = "https://www.alphavantage.co/";
-  // API_CALL = `${this.baseUrl}query?function=TIME_SERIES_DAILY_ADJUSTED&symbol=${stockSymbol}&interval=5min&apikey=${this.apiKey}`;
 
 
   getTIME_SERIES_DAILY(stockSymbol: string) {
     return this.http.get(`${this.baseUrl}query?function=TIME_SERIES_DAILY_ADJUSTED&symbol=${stockSymbol}&interval=5min&apikey=${this.apiKey}`);
   }
 
+  getSYMBOL_SEARCH(stockSymbolSearch: string) {
+    return this.http.get(`${this.baseUrl}query?function=SYMBOL_SEARCH&keywords=${stockSymbolSearch}&apikey=${this.apiKey}`);
+  }
 }

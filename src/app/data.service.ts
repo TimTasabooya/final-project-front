@@ -17,11 +17,18 @@ interface MetaData{
 interface TimeSeries{
 
 }
+
+interface SearchResponse {
+  bestMatches: any[];
+}
+
 @Injectable({
   providedIn: 'root'
 })
 
 export class DataService {
+  searchValue: string;
+
   [x: string]: any;
 
   input;
@@ -35,8 +42,8 @@ export class DataService {
 
   constructor(public apiService: ApiService) { }
 
-  onClick() {
-    this.apiService.getTIME_SERIES_DAILY('TSLA')
+  getData() {
+    this.apiService.getTIME_SERIES_DAILY('DIS')
     .subscribe((res: ApiResponse) => {
       console.log('Tesla Time Series')
       this.metaData = res["Meta Data"];
@@ -74,6 +81,15 @@ export class DataService {
   onClickChartData() {
     alert(this.state.stockChartXValues);
     alert(this.state.stockChartYValues);
+  }
+
+  search() {
+    console.log(`You are searching for: ${this.searchValue}`);
+    this.apiService.getSYMBOL_SEARCH(this.searchValue)
+    .subscribe((res: SearchResponse) => {
+      console.log(res);
+      this.bestMatches = res.bestMatches;
+    })
   }
   
 }

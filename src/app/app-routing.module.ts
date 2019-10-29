@@ -4,10 +4,12 @@ import { AppComponent } from './app.component';
 import { ChartsComponent } from './charts/charts.component';
 import { SearchComponent } from './search/search.component';
 import { ProfileComponent } from './profile/profile.component';
+import { LoginComponent } from './login/login.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'charts', pathMatch: 'full' },
+  { path: '', redirectTo: 'login', pathMatch: 'full' },
   { path: 'app', component: AppComponent },
+  { path: 'login', component: LoginComponent },
   { path: 'charts', component: ChartsComponent },
   { path: 'search', component: SearchComponent },
   { path: 'profile', component: ProfileComponent },
