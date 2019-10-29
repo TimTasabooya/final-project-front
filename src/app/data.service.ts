@@ -29,7 +29,7 @@ export class DataService {
   timeSeries : TimeSeries;
   state = {
     stockChartXValues: [],
-    stockChartYValues: ['100']
+    stockChartYValues: []
   }
 
 
