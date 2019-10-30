@@ -1,0 +1,19 @@
+.wrapper {
+    -webkit-box-shadow: 0px 0px 50px 30px #f4c145;
+    -moz-box-shadow: 0px 0px 50px 30px #f4c145;
+    box-shadow: 0px 0px 50px 30px #f4c145;
+    margin: 60px;
+    border: 20px ridge #f4c145;
+}
+
+.orderList {
+    border: 20px ridge #f4c145;
+}
+
+h4 {
+    margin: 20px;
+}
+
+h3 {
+    margin: 20px;
+}

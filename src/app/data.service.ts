@@ -57,32 +57,6 @@ export class DataService {
     })
   }
 
-  onClickDemo() {
-    fetch('https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=MSFT&apikey=demo')
-    // .then(
-    //   function(response) {
-    //     console.log('Demo Time Series')
-    //     return response.json();
-    //   }
-    // )
-    .then(
-      function(data) {
-        console.log('Demo Time Series');
-        console.log(data.json());
-
-        for (var key in data['Time Series (Daily)']) {
-          this.state.stockChartXValues.push(key);
-          this.state.stockChartYValues.push(data['Time Series (Daily)'][key]['1. open']);
-        }
-      }
-    )
-  }
-
-  onClickChartData() {
-    alert(this.state.stockChartXValues);
-    alert(this.state.stockChartYValues);
-  }
-
   search() {
     console.log(`You are searching for: ${this.searchValue}`);
     this.apiService.getSYMBOL_SEARCH(this.searchValue)
@@ -91,6 +65,47 @@ export class DataService {
       this.bestMatches = res.bestMatches;
     })
   }
+
+  account: any = {
+    fname: 'Alex',
+    lname: 'Parker',
+    age: 23,
+    address: {
+      street: '101 West Broadway',
+      city: 'San Diego',
+      state: 'Ca',
+      zip: 92101,
+      country: 'USA'
+    },
+    balance: 50000,
+    currency: 'usd',
+    orders: [
+      {
+        date: '03-03-2019',
+        type: 'buy',
+        company: 'TSLA',
+        shares: 17.54,
+        amount: 5000.00,
+        currency: 'usd'
+      },
+      {
+        date: '06-03-2019',
+        type: 'buy',
+        company: 'AMZ',
+        shares: 4.13,
+        amount: 7000.00,
+        currency: 'usd'
+      },
+      {
+        date: '10-28-2019',
+        type: 'sell',
+        company: 'TSLA',
+        shares: 17.54,
+        amount: 5788.00,
+        currency: 'usd'
+      }
+    ]
+  };
   
 }
 

@@ -1,1 +1,20 @@
-<p>profile works!</p>
+<h2>Account Information</h2>
+
+<div class="wrapper">
+    <h3>User: {{this.dataService.account.fname}} {{this.dataService.account.lname}}</h3>
+    <h4>Balance: ${{this.dataService.account.balance}}</h4>
+    <h3><strong>Order History</strong></h3>
+    <!-- <div *ngFor="let order from this.dataService.account.orders"> -->
+    <!-- <p>Order Type: {{order.type}}</p>
+        <p>Date: {{order.date}}</p>
+        <p>Company: {{order.company}}</p> -->
+    <!-- </div> -->
+    <!-- <p>{{this.dataService.account.orders[0].company}}</p> -->
+    <div class="orderList" *ngFor="let item of this.dataService.account.orders.reverse()">
+        <h4>Type: {{item.type}}</h4>
+        <h4>Date: {{item.date}}</h4>
+        <h4>Company: {{item.company}}</h4>
+        <h4>Shares: {{item.shares}}</h4>
+        <h4>Amount: ${{item.amount}}</h4>
+    </div>
+</div>

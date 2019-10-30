@@ -14,6 +14,7 @@ import { ApiService } from './api.service';
 import { DataService } from './data.service';
 import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
 
 
 
@@ -25,7 +26,8 @@ import { LoginComponent } from './login/login.component';
     ChartsComponent,
     SearchComponent,
     ProfileComponent,
-    LoginComponent
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
