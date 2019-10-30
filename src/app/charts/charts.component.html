@@ -2,16 +2,41 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0/dist/Chart.min.js"></script>
 </head> -->
 
-<h1>Welcome to Stock API</h1>
-
 <!-- <button (click)="dataService.getData()">CLICK FOR TESLA TIME SERIES</button>
 
 <button (click)="dataService.onClickDemo()">CLICK FOR DEMO TIME SERIES</button>
 
 <button (click)="dataService.onClickChartData()">CLICK TO CONFIRM CHART DATA SAVED</button> -->
 
-<body>
+<div class="main-container">
 
-    <canvas id="chart" width="400" height="400"></canvas>
-    <button class="buyButton">Buy</button>
-</body>
+    <div class="content-container">
+        <nav class="sidenav">
+            <section class="sidenav-content">
+                <section class="nav-group collapsible">
+                    <input id="tabexample1" type="checkbox">
+                    <label for="tabexample1">Stock Favorites</label>
+                    <ul class="nav-list" *ngFor="let stock of this.dataService.account.favorites">
+                        <li><a class="nav-link">{{stock.companyName}}</a></li>
+                    </ul>
+                </section>
+                <section class="nav-group collapsible">
+                    <input id="tabexample2" type="checkbox">
+                    <label for="tabexample2">Crypto Favorites</label>
+                    <ul class="nav-list">
+                        <li><a class="nav-link">Bitcoin</a></li>
+                        <li><a class="nav-link">Ethereum</a></li>
+                    </ul>
+                </section>
+            </section>
+        </nav>
+        <div class="content-area">
+
+            <body>
+
+                <canvas id="chart" width="400" height="400"></canvas>
+                <button class="buyButton">Buy</button>
+            </body>
+        </div>
+    </div>
+</div>
