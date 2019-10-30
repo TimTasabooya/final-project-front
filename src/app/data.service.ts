@@ -42,8 +42,8 @@ export class DataService {
 
   constructor(public apiService: ApiService) { }
 
-  getData() {
-    this.apiService.getTIME_SERIES_DAILY('DIS')
+  getData(stockTicker) {
+    this.apiService.getTIME_SERIES_DAILY(stockTicker)
     .subscribe((res: ApiResponse) => {
       console.log('Tesla Time Series')
       this.metaData = res["Meta Data"];
@@ -64,6 +64,20 @@ export class DataService {
       console.log(res);
       this.bestMatches = res.bestMatches;
     })
+  }
+
+  addFavorite(ticker, name, reg) {
+    this.account.favorites.push(
+      {
+        companyTicker: ticker,
+        companyName: name,
+        region: reg
+      }
+    )
+  }
+
+  showFavorites() {
+    alert(this.account.favorites.map(item => item.companyTicker))
   }
 
   account: any = {
@@ -103,6 +117,28 @@ export class DataService {
         shares: 17.54,
         amount: 5788.00,
         currency: 'usd'
+      }
+    ],
+    favorites: [
+      {
+        companyTicker: 'TSLA',
+        companyName: 'Tesla Inc.',
+        region: 'United States'
+      },
+      {
+        companyTicker: 'AMZN',
+        companyName: 'Amazon.com Inc.',
+        region: 'United States'
+      },
+      {
+        companyTicker: 'NKE',
+        companyName: 'NIKE Inc.',
+        region: 'United States'
+      },
+      {
+        companyTicker: 'SPRO',
+        companyName: 'Stock Analyzer Pro LTD',
+        region: 'United States'
       }
     ]
   };

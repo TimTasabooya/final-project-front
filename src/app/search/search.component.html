@@ -1,10 +1,9 @@
 <input id="search_input" [(ngModel)]="this.dataService.searchValue" size="35" type="text" placeholder="Search for companies or symbols" />
-<button id="search_input" (click)="this.dataService.search()">Submit</button>
+<button id="search_input" (click)="this.dataService.search()">Submit</button><button (click)='this.dataService.showFavorites()'>Show Favs</button>
 
 
 <div>
     <div id="stock_list" *ngFor="let key of this.dataService.bestMatches">
-        <h3>{{ key["1. symbol"] }}</h3>
-        <!-- <h4>{{ key["2. name"] }}</h4> -->
+        <button class="stockButton" (click)="this.dataService.addFavorite(key['1. symbol'], key['2. name'], key['4. region'])"><strong>{{ key["1. symbol"] }}</strong> - {{ key["2. name"] }} - {{key["4. region"]}}</button>
     </div>
 </div>

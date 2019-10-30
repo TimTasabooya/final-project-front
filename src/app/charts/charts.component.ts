@@ -12,7 +12,7 @@ export class ChartsComponent implements OnInit {
   constructor(public dataService: DataService) { }
 
   ngOnInit() {
-    this.dataService.getData()
+    this.dataService.getData('TSLA')
 
     var ctx = document.getElementById('chart').getContext('2d');
     var myChart = new Chart(ctx, {
