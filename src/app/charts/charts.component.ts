@@ -12,7 +12,6 @@ export class ChartsComponent implements OnInit {
   constructor(public dataService: DataService) { }
 
   ngOnInit() {
-    this.dataService.getData('TSLA')
 
     var ctx = document.getElementById('chart').getContext('2d');
     var myChart = new Chart(ctx, {
@@ -20,7 +19,7 @@ export class ChartsComponent implements OnInit {
         data: {
             labels: this.dataService.state.stockChartXValues.slice(0,20).reverse(),
             datasets: [{
-                label: 'Tesla Stock Price (Past 30 days)',
+                label: `${this.dataService.currentlyCharted}`, // Title of the chart
                 data: this.dataService.state.stockChartYValues.slice(0,20).reverse(),
                 backgroundColor:'rgba(255, 99, 132, 0.2)',
                 borderColor:'rgba(255, 99, 132, 1)',

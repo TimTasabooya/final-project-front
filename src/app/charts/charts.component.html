@@ -17,7 +17,7 @@
                     <input id="tabexample1" type="checkbox">
                     <label for="tabexample1">Stock Favorites</label>
                     <ul class="nav-list" *ngFor="let stock of this.dataService.account.favorites">
-                        <li><a class="nav-link">{{stock.companyName}}</a></li>
+                        <li><a (click)="this.dataService.getData(stock.companyTicker)" class="nav-link">{{stock.companyName}}</a></li>
                     </ul>
                 </section>
                 <section class="nav-group collapsible">
@@ -33,7 +33,9 @@
         <div class="content-area">
 
             <body>
-
+                <span class="spinner">
+                            Loading...
+                        </span>
                 <canvas id="chart" width="400" height="400"></canvas>
                 <button class="buyButton">Buy</button>
             </body>

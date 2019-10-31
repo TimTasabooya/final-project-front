@@ -28,6 +28,7 @@ interface SearchResponse {
 
 export class DataService {
   searchValue: string;
+  currentlyCharted: string = 'Select company to view Stock Price'; // variable for the current chart Title
 
   [x: string]: any;
 
@@ -55,6 +56,7 @@ export class DataService {
         this.state.stockChartYValues.push(res['Time Series (Daily)'][key]['1. open']);
       }
     })
+    this.currentlyCharted = `${stockTicker} Stock Price (Past 30 days)`;
   }
 
   search() {
@@ -74,6 +76,7 @@ export class DataService {
         region: reg
       }
     )
+    alert(`${name} added to favorites!`)
   }
 
   showFavorites() {
@@ -136,7 +139,7 @@ export class DataService {
         region: 'United States'
       },
       {
-        companyTicker: 'SPRO',
+        companyTicker: 'TSLA',
         companyName: 'Stock Analyzer Pro LTD',
         region: 'United States'
       }
