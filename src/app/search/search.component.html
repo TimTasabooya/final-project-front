@@ -8,3 +8,9 @@
         <button class="stockButton" (click)="this.dataService.addFavorite(key['1. symbol'], key['2. name'], key['4. region'])"><strong>{{ key["1. symbol"] }}</strong> - {{ key["2. name"] }} - {{key["4. region"]}}</button>
     </div>
 </div>
+<h2 *ngIf="this.dataService.searchValue">News Feed</h2>
+<div id="news_list" *ngFor="let key of this.dataService.articles">
+    <a href="key.url">
+        <h3><strong>{{key.source.name}}:</strong> {{key.title}}</h3>
+    </a>
+</div>

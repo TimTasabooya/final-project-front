@@ -22,6 +22,9 @@ interface SearchResponse {
   bestMatches: any[];
 }
 
+interface NewsResponse {
+  articles: any[];
+}
 @Injectable({
   providedIn: 'root'
 })
@@ -46,7 +49,7 @@ export class DataService {
   getData(stockTicker) {
     this.apiService.getTIME_SERIES_DAILY(stockTicker)
     .subscribe((res: ApiResponse) => {
-      console.log('Tesla Time Series')
+      console.log('${stockTicker} Time Series')
       this.metaData = res["Meta Data"];
       this.timeSeries = res["Time Series (Daily)"];
       console.log(this.metaData);
@@ -65,6 +68,16 @@ export class DataService {
     .subscribe((res: SearchResponse) => {
       console.log(res);
       this.bestMatches = res.bestMatches;
+    });
+    this.getNews();
+  }
+
+  getNews() {
+    console.log(`Pulling up articles for ${this.searchValue}`);
+    this.apiService.getNEWS_EVERYTHING(this.searchValue)
+    .subscribe((res: NewsResponse) => {
+      console.log(res);
+      this.articles = res.articles;
     })
   }
 
